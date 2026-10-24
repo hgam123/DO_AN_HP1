@@ -1,0 +1,60 @@
+/* KSport - CSS dùng chung (chuyển từ thẻ <style> của trang chủ cũ) */
+body {
+  background-color: #0d0d12;
+  color: #f8f9fa;
+}
+
+.navbar {
+  background-color: #212529;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: #191923;
+  color: #f8f9fa;
+  border: 1px solid #343a40;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #198754;
+}
+
+.product-img {
+  height: 280px;
+  object-fit: contain;
+  background-color: #ffffff;
+}
+
+.category-icon {
+  font-size: 40px;
+  color: #20c997;
+}
+
+.benefit-icon {
+  font-size: 35px;
+  color: #20c997;
+}
+
+.footer {
+  background-color: #191923;
+  border-top: 1px solid #343a40;
+}
+
+.footer a {
+  color: #adb5bd;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #20c997;
+}
+
+.cart-badge {
+  font-size: 0.65rem;
+}

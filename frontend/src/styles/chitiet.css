@@ -1,0 +1,125 @@
+/* KSport - Trang chi tiết sản phẩm
+   Mọi selector đều nằm dưới .ct-page và class có tiền tố ct-
+   để không đụng với Bootstrap / các trang khác. */
+.ct-page{
+  --bg:#0b0b0f;
+  --surface:#16171f;
+  --surface-2:#1c1d27;
+  --border:#2a2c37;
+  --text:#ffffff;
+  --text-muted:#9ca3af;
+  --text-dim:#6b7280;
+  --accent:#22a55b;
+  --accent-hover:#1c8a4b;
+  --accent-bright:#2dd4a0;
+  --accent-soft:#22a55b1f;
+  --star:#f5b942;
+  --radius:10px;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,"Segoe UI",Arial,sans-serif;
+}
+.ct-page *{margin:0;padding:0}
+.ct-page a{text-decoration:none;color:inherit}
+.ct-page button{font-family:inherit}
+
+.ct-page .ct-container{max-width:1200px;margin:0 auto;padding:0 18px 50px}
+.ct-page .ct-breadcrumb{padding:22px 0;color:var(--text-dim);font-size:13px}
+.ct-page .ct-breadcrumb span{margin:0 10px;color:var(--border)}
+.ct-page .ct-breadcrumb .ct-current{margin:0;color:var(--text-muted)}
+.ct-page .ct-breadcrumb a:hover{color:var(--accent)}
+.ct-page .ct-error{padding:24px;color:#f87171;font-weight:600}
+.ct-page .ct-product-card{display:grid;grid-template-columns:52% 48%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px #00000055}
+.ct-page .ct-gallery{padding:28px;border-right:1px solid var(--border)}
+.ct-page .ct-main-image{height:490px;border:1px solid var(--border);border-radius:8px;background:radial-gradient(circle at 50% 40%,#23252f,var(--bg));display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.ct-page .ct-sport-icon{font-size:170px;filter:drop-shadow(0 12px 18px #000a)}
+.ct-page .ct-image-label{margin-top:16px;color:var(--text-dim);font-size:12px;letter-spacing:2px}
+.ct-page .ct-thumbs{display:flex;gap:12px;margin-top:14px}
+.ct-page .ct-thumb{width:72px;height:72px;border:1px solid var(--border);border-radius:6px;background:var(--bg);font-size:30px;cursor:pointer;transition:border-color .2s;padding:0;overflow:hidden}
+.ct-page .ct-thumb.ct-active,.ct-page .ct-thumb:hover{border:2px solid var(--accent)}
+.ct-page .ct-info{padding:30px 34px}
+.ct-page .ct-brand{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:1.5px;margin-bottom:8px;text-transform:uppercase}
+.ct-page .ct-info h1{font-size:27px;line-height:1.3;margin-bottom:14px;color:var(--text)}
+.ct-page .ct-rating{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--text-muted)}
+.ct-page .ct-stars{color:var(--star);letter-spacing:2px;font-size:17px}
+.ct-page .ct-rating i{height:14px;width:1px;background:var(--border)}
+.ct-page .ct-price-box{display:flex;align-items:center;gap:12px;background:var(--accent-soft);border:1px solid #22a55b40;margin:20px 0;padding:18px;border-radius:6px}
+.ct-page .ct-price{font-size:31px;color:var(--accent);font-weight:800}
+.ct-page .ct-old-price{text-decoration:line-through;color:var(--text-dim);font-size:14px}
+.ct-page .ct-discount{background:var(--accent);color:#fff;font-size:11px;padding:4px 7px;border-radius:3px}
+.ct-page .ct-shipping{display:flex;gap:12px;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:13px;margin-bottom:18px}
+.ct-page .ct-shipping span{font-size:21px}
+.ct-page .ct-shipping b,.ct-page .ct-shipping small{display:block}
+.ct-page .ct-shipping b{font-size:13px;color:var(--text)}
+.ct-page .ct-shipping small{color:var(--text-muted);margin-top:4px}
+.ct-page .ct-specs{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0}
+.ct-page .ct-specs div{display:flex;margin:10px 0;font-size:14px}
+.ct-page .ct-specs label{width:135px;color:var(--text-muted)}
+.ct-page .ct-specs strong{font-weight:500;color:var(--text)}
+.ct-page .ct-stock{font-size:14px;color:var(--accent-bright);margin:17px 0}
+.ct-page .ct-stock span{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent-bright);margin-right:5px;box-shadow:0 0 8px var(--accent-bright)}
+.ct-page .ct-stock small{color:var(--text-muted)}
+.ct-page .ct-quantity{display:flex;align-items:center;gap:25px;margin:12px 0 20px;font-size:14px;color:var(--text-muted)}
+.ct-page .ct-stepper{height:40px;display:flex;border:1px solid var(--border);border-radius:5px;overflow:hidden;background:var(--bg)}
+.ct-page .ct-stepper button{width:38px;border:0;background:var(--surface-2);color:var(--text);font-size:18px;cursor:pointer;transition:background .2s}
+.ct-page .ct-stepper button:hover{background:var(--accent-soft);color:var(--accent)}
+.ct-page .ct-stepper input{width:50px;border:0;border-left:1px solid var(--border);border-right:1px solid var(--border);background:transparent;color:var(--text);text-align:center;outline:0}
+.ct-page .ct-actions{display:flex;gap:10px}
+.ct-page .ct-btn{height:48px;border-radius:5px;padding:0 20px;font-weight:700;font-size:14px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.ct-page .ct-add{flex:1;color:var(--accent);border:1px solid var(--accent);background:transparent}
+.ct-page .ct-add:hover{background:var(--accent-soft)}
+.ct-page .ct-add:disabled{opacity:.4;cursor:not-allowed}
+.ct-page .ct-buy{flex:1;color:#fff;background:var(--accent);border:1px solid var(--accent)}
+.ct-page .ct-buy:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.ct-page .ct-benefits{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:25px;padding-top:18px;border-top:1px solid var(--border)}
+.ct-page .ct-benefits>div{display:flex;gap:7px;color:var(--accent-bright);font-size:16px}
+.ct-page .ct-benefits b,.ct-page .ct-benefits small{display:block;color:var(--text)}
+.ct-page .ct-benefits b{font-size:11px}
+.ct-page .ct-benefits small{font-size:10px;color:var(--text-muted);margin-top:3px}
+.ct-page .ct-below{display:grid;grid-template-columns:1fr 310px;gap:20px;margin-top:20px}
+.ct-page .ct-description,.ct-page aside{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px}
+.ct-page .ct-description h2{font-size:20px;margin-bottom:14px;color:var(--text)}
+.ct-page .ct-description p{color:var(--text-muted);font-size:14px;line-height:1.7;margin-bottom:20px}
+.ct-page table{width:100%;border-collapse:collapse;font-size:14px;color:var(--text)}
+.ct-page td{padding:13px 15px;border-bottom:1px solid var(--border)}
+.ct-page td:first-child{width:230px;background:var(--surface-2);color:var(--text-muted)}
+.ct-page aside h3{font-size:22px;color:var(--accent);margin-bottom:10px}
+.ct-page aside p{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:20px}
+.ct-page .ct-mini{padding:12px 0;border-top:1px solid var(--border);font-size:13px;color:var(--text-muted)}
+.ct-page .ct-toast{position:fixed;right:25px;bottom:25px;background:var(--accent);color:#fff;padding:13px 20px;border-radius:7px;font-size:14px;opacity:0;transform:translateY(20px);transition:.25s;pointer-events:none;box-shadow:0 6px 20px #0008}
+.ct-page .ct-toast.ct-show{opacity:1;transform:translateY(0)}
+
+/* ===== Responsive ===== */
+@media(max-width:900px){
+  .ct-page .ct-product-card{grid-template-columns:1fr}
+  .ct-page .ct-gallery{border-right:0;border-bottom:1px solid var(--border)}
+  .ct-page .ct-main-image{height:400px}
+  .ct-page .ct-below{grid-template-columns:1fr}
+  .ct-page .ct-benefits{grid-template-columns:1fr}
+  .ct-page .ct-info{padding:25px}
+}
+@media(max-width:560px){
+  .ct-page .ct-main-image{height:300px}
+  .ct-page .ct-sport-icon{font-size:110px}
+  .ct-page .ct-info h1{font-size:22px}
+  .ct-page .ct-price{font-size:26px}
+  .ct-page .ct-actions{flex-direction:column}
+  .ct-page .ct-below{margin-top:14px}
+  .ct-page .ct-gallery{padding:15px}
+  .ct-page td:first-child{width:130px}
+}
+
+/* ----- Ảnh thật trong thư viện ----- */
+.ct-page .ct-main-image{overflow:hidden}
+.ct-page .ct-main-img{width:100%;height:100%;object-fit:contain;padding:12px}
+.ct-page .ct-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ----- Chọn size / màu ----- */
+.ct-page .ct-options{margin:16px 0 4px}
+.ct-page .ct-options>label{display:block;font-size:14px;color:var(--text-muted);margin-bottom:9px}
+.ct-page .ct-option-list{display:flex;flex-wrap:wrap;gap:10px}
+.ct-page .ct-option{min-width:48px;padding:9px 14px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:14px;cursor:pointer;transition:border-color .2s,background .2s}
+.ct-page .ct-option:hover:not(:disabled){border-color:var(--accent)}
+.ct-page .ct-option.ct-selected{border:2px solid var(--accent);background:var(--accent-soft);color:var(--accent-bright);font-weight:700}
+.ct-page .ct-option:disabled{color:var(--text-dim);cursor:not-allowed;text-decoration:line-through;opacity:.55}
+.ct-page .ct-pick-warning{margin-top:10px;color:#f87171;font-size:13px}
