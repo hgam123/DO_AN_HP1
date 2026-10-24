@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { layChiTietSanPham } from "../api/sanPhamApi.js";
-import { useCart } from "../context/CartContext.jsx";
-import "../styles/chitiet.css";
+import { layChiTietSanPham } from "../../api/sanPhamApi.js";
+import { useCart } from "../../context/CartContext.jsx";
+import "../../styles/chitiet.css";
 
 const MA_MAC_DINH = "BD01";
 const ANH_MINH_HOA = "⚽"; // hiện khi sản phẩm chưa có ảnh hoặc ảnh tải lỗi

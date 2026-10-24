@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext.jsx";
 export default function DangNhap() {
+   const navigate = useNavigate();
+  const { dangNhapThanhCong } = useAuth();
   const [formData, setFormData] = useState({
     email: "",
     matkhau: "",
@@ -40,15 +43,11 @@ export default function DangNhap() {
         // Nếu API trả về thành công (Mã 200 OK)
         if (response.ok) {
             const data = await response.json(); // Lấy cục JSON trả về (gồm thongBao và token)
-            
-            // 1. Lưu "Chìa khóa" vào trình duyệt để xài sau này
-            localStorage.setItem("token", data.token);
-            
-            // 2. Thông báo thành công
-            alert(data.thongBao); 
-            
-            // 3. Chuyển hướng về trang chủ (hoặc trang dashboard)
-            window.location.href = "/"; 
+               
+            // Lưu token + cập nhật trạng thái đăng nhập toàn app (Header sẽ tự hiện tên tài khoản)
+            dangNhapThanhCong(data);
+            navigate("/");
+
         } else {
             // Nếu sai mật khẩu hoặc không có tài khoản (Backend trả về chữ)
             const textError = await response.text();

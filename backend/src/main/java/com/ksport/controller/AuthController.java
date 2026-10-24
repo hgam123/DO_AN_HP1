@@ -40,8 +40,32 @@ public class AuthController {
 
         return ResponseEntity.ok(Map.of(
             "thongBao", "Đăng nhập thành công!",
-            "token", chiaKhoaToken 
+            "token", chiaKhoaToken ,
+             "hoTen", user.getHoTen() != null ? user.getHoTen() : user.getEmail(),
+            "email", user.getEmail()
         ));
+    }
+    @GetMapping("/toi")
+    public ResponseEntity<?> thongTinCuaToi(
+            @RequestHeader(value = "Authorization", required = false) String tokenHeader) {
+
+        if (tokenHeader == null || !tokenHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Bạn chưa đăng nhập!");
+        }
+
+        try {
+            String email = jwtUtil.layEmailTuChiaKhoa(tokenHeader.substring(7));
+            NguoiDung user = nguoiDungRepository.findByEmail(email);
+            if (user == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Tài khoản không tồn tại!");
+            }
+            return ResponseEntity.ok(Map.of(
+                "hoTen", user.getHoTen() != null ? user.getHoTen() : user.getEmail(),
+                "email", user.getEmail()
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Chìa khóa không hợp lệ hoặc đã hết hạn!");
+        }
     }
 
     // ----- CHỨC NĂNG BẢO VỆ: ĐỔI MẬT KHẨU -----

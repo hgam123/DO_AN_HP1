@@ -1,11 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
-
+import { useAuth } from "../context/AuthContext.jsx";
 const mucDanhMuc = ["Quần áo thể thao", "Giày thể thao", "Dụng cụ thể thao", "Phụ kiện"];
 
 export default function Header() {
   const { soLuongTrongGio } = useCart();
-
+ const { nguoiDung, dangKiemTra, dangXuat } = useAuth();
   return (
     <header id="header">
       <nav className="navbar navbar-expand-lg navbar-dark sticky-top">
@@ -70,8 +70,32 @@ export default function Header() {
                   </span>
                 )}
               </button>
-              <Link className="btn btn-outline-success" to="/dang-nhap">Đăng nhập</Link>
-              <Link className="btn btn-success" to="/dang-ky">Đăng ký</Link>
+              {dangKiemTra ? null : nguoiDung ? (
+                <div className="dropdown">
+                  <button className="btn btn-success dropdown-toggle" type="button"
+                          data-bs-toggle="dropdown" aria-expanded="false" title={nguoiDung.email}>
+                    <i className="bi bi-person-circle me-1"></i>
+                    <span className="d-inline-block text-truncate align-bottom" style={{ maxWidth: 140 }}>
+                      {nguoiDung.hoTen}
+                    </span>
+                  </button>
+                  <ul className="dropdown-menu dropdown-menu-end">
+                    <li><span className="dropdown-item-text small text-secondary">{nguoiDung.email}</span></li>
+                    <li><hr className="dropdown-divider" /></li>
+                    <li>
+                      <button className="dropdown-item" type="button" onClick={dangXuat}>
+                        <i className="bi bi-box-arrow-right me-2"></i>Đăng xuất
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <>
+                  <Link className="btn btn-outline-success" to="/dang-nhap">Đăng nhập</Link>
+                  <Link className="btn btn-success" to="/dang-ky">Đăng ký</Link>
+                </>
+              )}
+
             </div>
           </div>
         </div>
